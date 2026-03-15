@@ -34,7 +34,7 @@ try:
 except:
     SYMPY_OK = False
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__, static_folder=".")
 ARQUIVO = "cerebro_robo.json"
 
 # ── memória ────────────────────────────────────────────────────────────────
@@ -189,7 +189,7 @@ def buscar(entrada, mem):
 # ── ROTAS ─────────────────────────────────────────────────────────────────────
 @app.route("/")
 def index():
-    return send_from_directory("static", "index.html")
+    return send_from_directory(".", "index.html")
 
 @app.route("/api/chat", methods=["POST"])
 def chat():
